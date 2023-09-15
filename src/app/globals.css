@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .logo {
+    @apply relative;
+  }
+
+  .logo .character {
+    @apply absolute block text-3xl text-primary font-semibold top-1/2 left-1/2 -mt-5 -ml-3.5;
+  }
+
+  .nav-wrapper {
+    @apply flex flex-1 justify-center;
+  }
+
+  .nav-wrapper .nav-list {
+    @apply flex bg-white px-[5px] py-1 items-center gap-3 m-2 rounded-full;
+  }
+
+  .nav-wrapper .nav-list .nav-link {
+    @apply block py-2 px-4 text-sm text-secondary font-semibold rounded-full transition-all duration-700;
+  }
+
+  .nav-wrapper .nav-list .nav-link:hover {
+    @apply bg-light;
+  }
+
+  .nav-wrapper .nav-list .nav-link.active {
+    @apply text-white block bg-secondary;
+  }
+}
