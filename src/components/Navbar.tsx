@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Navbar() {
   return (
-    <nav className="w-full mx-auto my-10 fixed">
+    <nav className="w-full mx-auto my-10 fixed top-0">
       <div className="container flex mx-auto relative">
         <div className="logo ">
           <span className="character">W</span>

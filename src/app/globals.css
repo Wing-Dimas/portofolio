@@ -1,8 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: "Quicksand", sans-serif;
+}
+
 @layer components {
+  * {
+    @apply transition-all duration-500 scroll-smooth font-quicksand;
+  }
   .logo {
     @apply relative;
   }
@@ -20,14 +28,21 @@
   }
 
   .nav-wrapper .nav-list .nav-link {
-    @apply block py-2 px-4 text-sm text-secondary font-semibold rounded-full transition-all duration-700;
-  }
-
-  .nav-wrapper .nav-list .nav-link:hover {
-    @apply bg-light;
+    @apply block py-2 px-4 text-sm text-secondary font-semibold rounded-full transition-all duration-700 hover:bg-light;
   }
 
   .nav-wrapper .nav-list .nav-link.active {
     @apply text-white block bg-secondary;
+  }
+
+  .btn-resume {
+    @apply flex justify-center items-center mt-8 gap-3 p-2 border rounded-lg border-primary bg-white text-primary hover:shadow-xl;
+  }
+
+  .btn-resume:hover .arrow {
+    @apply ml-4;
+  }
+  .line {
+    @apply border-l border-primary h-96;
   }
 }
