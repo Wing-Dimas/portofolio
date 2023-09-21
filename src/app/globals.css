@@ -45,4 +45,12 @@
   .line {
     @apply border-l border-primary h-96;
   }
+
+  .subtitle {
+    @apply text-4xl text-light font-semibold;
+  }
+
+  .text-center {
+    @apply flex justify-center items-center;
+  }
 }

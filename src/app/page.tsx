@@ -1,5 +1,5 @@
 import Contact from "@/components/Contact";
-import Experince from "@/components/Experince";
+import Experience from "@/components/Experience";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Project from "@/components/Project";
@@ -10,7 +10,7 @@ export default function page() {
     <div className="min-h-[2000px] relative">
       <Navbar />
       <Hero />
-      <Experince />
+      <Experience />
       <Project />
       <Contact />
     </div>
