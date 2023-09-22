@@ -63,6 +63,10 @@
     @apply text-primary text-base font-medium rounded-md hover:bg-light;
   }
 
+  .hamburger .nav-wrapper .nav-dark-mode {
+    @apply block p-1 text-sm text-secondary font-semibold rounded-full transition-all duration-700 hover:bg-light;
+  }
+
   .nav-wrapper {
     @apply flex flex-1 justify-center;
   }
@@ -73,6 +77,10 @@
 
   .nav-wrapper .nav-list .nav-link {
     @apply block py-2 px-4 text-sm text-secondary font-semibold rounded-full transition-all duration-700 hover:bg-light;
+  }
+
+  .nav-wrapper .nav-list .nav-dark-mode {
+    @apply block p-1 text-sm text-secondary font-semibold rounded-full transition-all duration-700 hover:bg-light;
   }
 
   .nav-wrapper .nav-list .nav-link.active {

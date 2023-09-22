@@ -38,7 +38,7 @@ export default function Contact() {
     <section className="py-20 container px-4 md:px-32 mx-auto relative min-h-[80vh]">
       <div className="flex-1 mb-16">
         <h2 className="subtitle text-primary">Let&apos;s Talk</h2>
-        <p className="text-xl md:text-2xl font-normal">
+        <p className="text-xl text-dark md:text-2xl font-normal dark:text-light">
           new project, freelance inquiry or even a coffee
         </p>
       </div>
@@ -78,7 +78,7 @@ export default function Contact() {
               </button>
             </div>
             <div className="mb-8">
-              <p className="text-lg md:text-2xl font-medium">
+              <p className="text-lg md:text-2xl font-medium text-dark dark:text-light">
                 Loosely designed in{" "}
                 <Hyperlink text="Figma" link="https://www.figma.com/" /> and
                 coded in{" "}

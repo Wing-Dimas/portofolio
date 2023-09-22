@@ -1,3 +1,5 @@
+"use client";
+import { useDarkModeStore } from "@/store/DarkMode";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Quicksand } from "next/font/google";
@@ -21,9 +23,14 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const isDarkMode = useDarkModeStore((state) => state.isDarkMode);
   return (
     <html lang="en">
-      <body className={`${quicksand.className} font-quicksand bg-light`}>
+      <body
+        className={`${quicksand.className} font-quicksand ${
+          isDarkMode ? "dark bg-dark" : "bg-light"
+        }`}
+      >
         {children}
       </body>
     </html>

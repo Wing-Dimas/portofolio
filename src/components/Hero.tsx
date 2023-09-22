@@ -13,10 +13,10 @@ export default function Hero() {
         <p className="leading-normal text-base text-primary font-semibold ">
           Hi, my name is
         </p>
-        <h1 className="leading-normal text-3xl md:text-5xl text-black dark:text-light font-semibold ">
+        <h1 className="leading-normal text-3xl md:text-5xl text-black dark:text-light font-semibold mb-3">
           Dimas Wing Bagas Bimantara
         </h1>
-        <h2 className="leading-normal text-3xl md:text-5xl text-primary font-bold">
+        <h2 className="leading-normal text-3xl md:text-5xl text-primary font-bold mb-3">
           I build things for the web
         </h2>
         <p className=" text-lg text-primary font-medium w-full md:w-96 mt-2">

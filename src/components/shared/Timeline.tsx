@@ -21,13 +21,18 @@ export default function Timeline({
   variant = "light",
 }: TimelineProps) {
   return (
-    <ol className={`relative border-l border-${variant}`}>
+    <ol
+      className={`relative ${enableTimeline && "border-l"}  ${
+        variant == "light" ? "border-light" : "border-dark"
+      }`}
+    >
       {items.map((item) => (
         <li className="mb-10 ml-2 sm:ml-6" key={item.id}>
           <div
             className={`absolute w-3 h-3 ${
-              enableTimeline && "bg-gray-200"
-            } rounded-full mt-9 -left-1.5 border border-${variant}`}
+              enableTimeline &&
+              `bg-gray-200 rounded-full mt-9 -left-1.5 border border-${variant}`
+            } `}
           ></div>
           <a
             href={item.link ? item.link : ""}

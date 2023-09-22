@@ -1,14 +1,21 @@
 "use client";
-import { IconBrandTwitter, IconX } from "@tabler/icons-react";
-import { IconBaselineDensityMedium } from "@tabler/icons-react";
-import { IconBrandGithub } from "@tabler/icons-react";
-import { IconBrandLinkedin } from "@tabler/icons-react";
-import { IconMoon } from "@tabler/icons-react";
+import { useDarkModeStore } from "@/store/DarkMode";
+import {
+  IconMoon,
+  IconBrandLinkedin,
+  IconBrandTwitter,
+  IconX,
+  IconBaselineDensityMedium,
+  IconBrandGithub,
+  IconBrightnessUp,
+} from "@tabler/icons-react";
 import Image from "next/image";
 import React, { useState } from "react";
 
 export default function Navbar() {
   const [isActive, setIsActive] = useState<boolean>(false);
+  const { isDarkMode, toggleDarkMode } = useDarkModeStore();
+
   return (
     <nav className="w-full mx-auto py-8 fixed top-0 z-50">
       {/* Mid */}
@@ -41,8 +48,18 @@ export default function Navbar() {
             </li>
 
             <li>
-              <button className="nav-link">
-                <IconMoon />
+              <button
+                className="overflow-hidden nav-dark-mode w-9 h-9"
+                onClick={() => toggleDarkMode()}
+              >
+                <div
+                  className={`flex w-[68px] items-center justify-between text-primary relative ${
+                    isDarkMode ? "-left-10" : "left-1"
+                  }`}
+                >
+                  <IconMoon size={24} />
+                  <IconBrightnessUp size={24} />
+                </div>
               </button>
             </li>
           </ul>
@@ -58,7 +75,9 @@ export default function Navbar() {
           {!isActive ? <IconBaselineDensityMedium /> : <IconX />}
         </button>
         <div
-          className={`nav-wrapper ${isActive ? "right-4" : "-right-[400px]"}`}
+          className={`nav-wrapper ${
+            isActive ? "right-4" : "-right-[400px] opacity-0"
+          }`}
         >
           <ul className="nav-list ">
             <li>
@@ -84,8 +103,18 @@ export default function Navbar() {
 
             <li>
               <div className="flex gap-2 justify-between items-center">
-                <button className="nav-link">
-                  <IconMoon />
+                <button
+                  className="overflow-hidden nav-dark-mode w-9 h-9"
+                  onClick={() => toggleDarkMode()}
+                >
+                  <div
+                    className={`flex w-[68px] items-center justify-between text-primary relative ${
+                      isDarkMode ? "-left-10" : "left-1"
+                    }`}
+                  >
+                    <IconMoon size={24} />
+                    <IconBrightnessUp size={24} />
+                  </div>
                 </button>
                 |
                 <a href="https://github.com/Wing-Dimas" className="brand">
