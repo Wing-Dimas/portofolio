@@ -5,7 +5,7 @@ import { data } from "@/constant/data/experince";
 export default function Experience() {
   return (
     <section className="bg-primary py-20">
-      <div className="container md:px-32 flex justify-between mx-auto relative min-h-[80vh]">
+      <div className="container divide">
         <div className="flex-1">
           <h2 className="subtitle">Experience</h2>
         </div>

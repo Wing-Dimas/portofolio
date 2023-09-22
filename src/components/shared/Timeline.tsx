@@ -23,7 +23,7 @@ export default function Timeline({
   return (
     <ol className={`relative border-l border-${variant}`}>
       {items.map((item) => (
-        <li className="mb-10 ml-6" key={item.id}>
+        <li className="mb-10 ml-2 sm:ml-6" key={item.id}>
           <div
             className={`absolute w-3 h-3 ${
               enableTimeline && "bg-gray-200"
@@ -31,7 +31,7 @@ export default function Timeline({
           ></div>
           <a
             href={item.link ? item.link : ""}
-            className={`block p-8 rounded-3xl ${
+            className={`block p-8 px-4 sm:px-8 rounded-3xl ${
               enableHover && variant == "light"
                 ? "hover:bg-[#7959FF]"
                 : "hover:bg-[#E0D1FF]"
@@ -41,10 +41,7 @@ export default function Timeline({
               className={`mb-1 leading-none font-normal text-base text-${variant}`}
             >
               {enableRangeDate &&
-                formatRangeDate(
-                  item.date_start ? item.date_start : null,
-                  item.date_end
-                )}
+                formatRangeDate(item.date_start ?? null, item.date_end)}
             </time>
             <h3
               className={`font-semibold text-${variant} text-xl flex items-center`}

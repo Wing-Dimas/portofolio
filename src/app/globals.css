@@ -47,6 +47,22 @@
     @apply absolute block text-3xl text-primary font-semibold top-1/2 left-1/2 -mt-5 -ml-3.5;
   }
 
+  .hamburger {
+    @apply w-full px-4 mx-auto flex md:hidden relative justify-end;
+  }
+
+  .hamburger .nav-wrapper {
+    @apply bg-white rounded-md shadow-lg p-1 absolute w-[300px] top-12;
+  }
+
+  .hamburger .nav-wrapper .nav-list {
+    @apply grid gap-2 p-2 w-full;
+  }
+
+  .hamburger .nav-wrapper .nav-link {
+    @apply text-primary text-base font-medium rounded-md hover:bg-light;
+  }
+
   .nav-wrapper {
     @apply flex flex-1 justify-center;
   }
@@ -64,14 +80,22 @@
   }
 
   .btn-resume {
-    @apply flex justify-center items-center mt-8 gap-3 p-2 border rounded-lg border-primary bg-white text-primary hover:shadow-xl;
+    @apply flex w-min justify-center items-center mt-8 gap-3 p-2 border rounded-lg border-primary bg-white text-primary hover:shadow-xl;
+  }
+
+  .divide {
+    @apply px-4 md:px-32 flex md:justify-between mx-auto relative min-h-[80vh] flex-col md:flex-row gap-4;
   }
 
   .btn-resume:hover .arrow {
     @apply ml-4;
   }
+
+  .brand {
+    @apply block p-2 rounded-md text-primary hover:bg-primary hover:text-light duration-0;
+  }
   .line {
-    @apply border-l border-primary h-96;
+    @apply border-l border-primary h-[30vh];
   }
 
   .subtitle {

@@ -19,7 +19,7 @@ export default function TextInput({
 }: TextInputPropsType) {
   return (
     <div className="grid gap-2 text-dark text-2xl font-medium ">
-      <label className="text-2xl font-medium">
+      <label className="text-xl md:text-2xl font-medium">
         {label} {required && "*"}
       </label>
       <input
@@ -28,7 +28,7 @@ export default function TextInput({
         value={value}
         onChange={onChange}
         required={required}
-        className="bg-transparent border-b-2 border-b-primary text-primary py-1 px-2 outline-none"
+        className="bg-transparent border-b-2 border-b-primary text-primary py-1 px-2 outline-none text-lg"
       />
     </div>
   );
