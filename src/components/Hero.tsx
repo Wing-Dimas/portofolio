@@ -1,10 +1,11 @@
-import React, { LegacyRef, useRef } from "react";
+import React from "react";
 import {
   IconArrowNarrowRight,
   IconBrandTwitter,
   IconBrandGithub,
   IconBrandLinkedin,
 } from "@tabler/icons-react";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -24,26 +25,26 @@ export default function Hero() {
           focusing on creating single page applications, Writing My Blog, and
           freelance.
         </p>
-        <a
+        <Link
           href="https://www.cakeresume.com/dimas-wing-bagas-bimantara"
           className="btn-resume"
         >
           <span className="text-2xl font-medium">Resume</span>
           <IconArrowNarrowRight className="arrow" />
-        </a>
+        </Link>
       </div>
 
       <div className="hidden md:block absolute bottom-0 right-0">
         <div className="flex flex-col gap-4 justify-center items-center">
-          <a href="https://github.com/Wing-Dimas" className="brand">
+          <Link href="https://github.com/Wing-Dimas" className="brand">
             <IconBrandGithub
               size={60}
               dur={0}
               stroke={1.6}
               className="duration-0"
             />
-          </a>
-          <a
+          </Link>
+          <Link
             href="https://www.linkedin.com/in/dimas-wing-bagas-bimantara-570b05197/"
             className="brand"
           >
@@ -53,15 +54,15 @@ export default function Hero() {
               stroke={1.6}
               className="duration-0"
             />
-          </a>
-          <a href="https://twitter.com/WingBagas" className="brand">
+          </Link>
+          <Link href="https://twitter.com/WingBagas" className="brand">
             <IconBrandTwitter
               size={60}
               dur={0}
               stroke={1.6}
               className="duration-0"
             />
-          </a>
+          </Link>
           <div className="line"></div>
         </div>
       </div>

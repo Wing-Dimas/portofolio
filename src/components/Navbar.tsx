@@ -10,6 +10,7 @@ import {
   IconBrightnessUp,
 } from "@tabler/icons-react";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 interface NavbarPropsType {
@@ -45,7 +46,7 @@ export default function Navbar({
     let currentSection = navigate;
     if (currentSection != "about" && offestY < experinceOffset) {
       setNavigate("about");
-    } else if (offestY > (contactRef.current?.offsetTop || 0)) {
+    } else if (offestY > (contactRef.current?.offsetTop || 0) - 100) {
       setNavigate("contact");
     } else if (offestY > (projectRef.current?.offsetTop || 0)) {
       setNavigate("project");
@@ -61,12 +62,19 @@ export default function Navbar({
   });
 
   return (
-    <nav className="w-full mx-auto py-8 fixed top-0 z-50">
+    <nav className="w-full mx-auto py-8 fixed top-0 z-40">
       {/* Mid */}
       <div className="container hidden md:flex px-4 lg:px-0 mx-auto relative">
         <div className="logo hidden md:block ">
           <span className="character">W</span>
-          <Image src={`/hexagon.png`} width={64} height={64} alt="hexagon" />
+          <Image
+            src={`/hexagon.png`}
+            width={64}
+            height={64}
+            alt="hexagon"
+            placeholder="blur"
+            blurDataURL="/hexagon.png"
+          />
         </div>
         <div className="nav-wrapper">
           <ul className="nav-list shadow-lg">
@@ -185,15 +193,15 @@ export default function Navbar({
                   </div>
                 </button>
                 |
-                <a href="https://github.com/Wing-Dimas" className="brand">
+                <Link href="https://github.com/Wing-Dimas" className="brand">
                   <IconBrandGithub
                     size={24}
                     dur={0}
                     stroke={1.6}
                     className="duration-0"
                   />
-                </a>
-                <a
+                </Link>
+                <Link
                   href="https://www.linkedin.com/in/dimas-wing-bagas-bimantara-570b05197/"
                   className="brand"
                 >
@@ -203,15 +211,15 @@ export default function Navbar({
                     stroke={1.6}
                     className="duration-0"
                   />
-                </a>
-                <a href="https://twitter.com/WingBagas" className="brand">
+                </Link>
+                <Link href="https://twitter.com/WingBagas" className="brand">
                   <IconBrandTwitter
                     size={24}
                     dur={0}
                     stroke={1.6}
                     className="duration-0"
                   />
-                </a>
+                </Link>
               </div>
             </li>
           </ul>

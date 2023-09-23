@@ -3,6 +3,7 @@ import React, { LegacyRef, forwardRef, useState } from "react";
 import TextInput from "./shared/TextInput";
 import TextArea from "./shared/TextArea";
 import Hyperlink from "./shared/Hyperlink";
+import Modal from "./shared/Modal";
 
 interface ContactPropsType {}
 
@@ -19,6 +20,9 @@ const Contact = forwardRef<HTMLElement, ContactPropsType>(({}, ref) => {
     message: "",
   });
 
+  const [modal, setModal] = useState<boolean>(false);
+  const [disable, setDisable] = useState<boolean>(false);
+
   const handleInputChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -31,9 +35,29 @@ const Contact = forwardRef<HTMLElement, ContactPropsType>(({}, ref) => {
     });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(formData);
+    setDisable(true);
+    try {
+      const res = await fetch("/api/submit", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      setModal(true);
+    } catch (error) {
+      console.error(error);
+    }
+    setDisable(false);
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
 
   return (
@@ -77,9 +101,10 @@ const Contact = forwardRef<HTMLElement, ContactPropsType>(({}, ref) => {
             <div className="mb-8">
               <button
                 type="submit"
-                className="bg-secondary p-2 rounded-md text-lg md:text-2xl text-light font-medium hover:shadow-md"
+                className="bg-secondary p-2 rounded-md text-lg md:text-2xl text-light font-medium hover:shadow-md disabled:bg-purple-500 flex items-center gap-2"
+                disabled={disable}
               >
-                Send Message
+                Send Message {disable && <div className="lds-dual-ring"></div>}
               </button>
             </div>
             <div className="mb-8">
@@ -110,6 +135,7 @@ const Contact = forwardRef<HTMLElement, ContactPropsType>(({}, ref) => {
           </div>
         </div>
       </form>
+      <Modal open={modal} setOpen={setModal} />
     </section>
   );
 });

@@ -2,6 +2,7 @@ import ProjectType from "@/types/Project";
 import React from "react";
 import Badge from "./Badge";
 import { formatRangeDate } from "@/utils/formatRangeDate";
+import Link from "next/link";
 
 type Variant = "light" | "dark" | "primary";
 
@@ -34,7 +35,7 @@ export default function Timeline({
               `bg-gray-200 rounded-full mt-9 -left-1.5 border border-${variant}`
             } `}
           ></div>
-          <a
+          <Link
             href={item.link ? item.link : ""}
             className={`block p-8 px-4 sm:px-8 rounded-3xl ${
               enableHover && variant == "light"
@@ -63,7 +64,7 @@ export default function Timeline({
               {item.tech_stack &&
                 item.tech_stack.map((tech, i) => <Badge text={tech} key={i} />)}
             </div>
-          </a>
+          </Link>
         </li>
       ))}
     </ol>

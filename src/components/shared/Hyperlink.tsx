@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 interface HyperlinkPropsType {
@@ -7,8 +8,8 @@ interface HyperlinkPropsType {
 
 export default function Hyperlink({ link, text }: HyperlinkPropsType) {
   return (
-    <a href={link} className="hyperlink">
+    <Link href={link} className="hyperlink">
       {text}
-    </a>
+    </Link>
   );
 }
