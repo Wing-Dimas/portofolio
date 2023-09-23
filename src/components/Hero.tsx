@@ -1,4 +1,4 @@
-import React from "react";
+import React, { LegacyRef, useRef } from "react";
 import {
   IconArrowNarrowRight,
   IconBrandTwitter,
@@ -33,7 +33,7 @@ export default function Hero() {
         </a>
       </div>
 
-      <div className="hidden sm:absolute bottom-0 right-0">
+      <div className="hidden md:block absolute bottom-0 right-0">
         <div className="flex flex-col gap-4 justify-center items-center">
           <a href="https://github.com/Wing-Dimas" className="brand">
             <IconBrandGithub

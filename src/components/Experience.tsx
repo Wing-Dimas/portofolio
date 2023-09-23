@@ -1,10 +1,12 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import Timeline from "./shared/Timeline";
 import { data } from "@/constant/data/experince";
 
-export default function Experience() {
+interface ExperiencePropsType {}
+
+const Experience = forwardRef<HTMLElement, ExperiencePropsType>(({}, ref) => {
   return (
-    <section className="bg-primary py-20">
+    <section className="bg-primary py-20" ref={ref}>
       <div className="container divide">
         <div className="flex-1">
           <h2 className="subtitle">Experience</h2>
@@ -15,4 +17,8 @@ export default function Experience() {
       </div>
     </section>
   );
-}
+});
+
+Experience.displayName = "Experience";
+
+export default Experience;

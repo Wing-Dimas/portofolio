@@ -12,9 +12,32 @@ import {
 import Image from "next/image";
 import React, { useState } from "react";
 
-export default function Navbar() {
+interface NavbarPropsType {
+  experinceRef: React.RefObject<HTMLElement>;
+  projectRef: React.RefObject<HTMLElement>;
+  contactRef: React.RefObject<HTMLElement>;
+}
+
+export default function Navbar({
+  experinceRef,
+  projectRef,
+  contactRef,
+}: NavbarPropsType) {
   const [isActive, setIsActive] = useState<boolean>(false);
+  const [navigate, setNavigate] = useState<string>("about");
   const { isDarkMode, toggleDarkMode } = useDarkModeStore();
+
+  const handleButton = (
+    name: string,
+    ref?: React.RefObject<HTMLElement> | null
+  ) => {
+    setNavigate(name);
+    window.scrollTo({
+      top: name == "about" ? 0 : ref ? ref.current?.offsetTop : 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <nav className="w-full mx-auto py-8 fixed top-0 z-50">
@@ -27,24 +50,36 @@ export default function Navbar() {
         <div className="nav-wrapper">
           <ul className="nav-list shadow-lg">
             <li>
-              <a href="#" className="nav-link active">
+              <button
+                className={`nav-link ${navigate == "about" && "active"}`}
+                onClick={() => handleButton("about", null)}
+              >
                 About
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#" className="nav-link">
-                Experince
-              </a>
+              <button
+                className={`nav-link ${navigate == "experience" && "active"}`}
+                onClick={() => handleButton("experience", experinceRef)}
+              >
+                Experience
+              </button>
             </li>
             <li>
-              <a href="#" className="nav-link">
+              <button
+                className={`nav-link ${navigate == "project" && "active"}`}
+                onClick={() => handleButton("project", projectRef)}
+              >
                 Project
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#" className="nav-link">
+              <button
+                className={`nav-link ${navigate == "contact" && "active"}`}
+                onClick={() => handleButton("contact", contactRef)}
+              >
                 Contact
-              </a>
+              </button>
             </li>
 
             <li>
@@ -81,24 +116,36 @@ export default function Navbar() {
         >
           <ul className="nav-list ">
             <li>
-              <a href="#" className="nav-link active">
+              <button
+                className={`nav-link ${navigate == "about" && "active"}`}
+                onClick={() => handleButton("about", null)}
+              >
                 About
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#" className="nav-link">
+              <button
+                className={`nav-link ${navigate == "experience" && "active"}`}
+                onClick={() => handleButton("experience", experinceRef)}
+              >
                 Experince
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#" className="nav-link">
+              <button
+                className={`nav-link ${navigate == "project" && "active"}`}
+                onClick={() => handleButton("project", projectRef)}
+              >
                 Project
-              </a>
+              </button>
             </li>
             <li>
-              <a href="#" className="nav-link">
+              <button
+                className={`nav-link ${navigate == "contact" && "active"}`}
+                onClick={() => handleButton("contact", contactRef)}
+              >
                 Contact
-              </a>
+              </button>
             </li>
 
             <li>

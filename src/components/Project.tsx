@@ -1,10 +1,12 @@
-import React from "react";
+import React, { LegacyRef, forwardRef } from "react";
 import Timeline from "./shared/Timeline";
 import { data } from "@/constant/data/project";
 
-export default function Project() {
+interface ProjectPropsType {}
+
+const Project = forwardRef<HTMLElement, ProjectPropsType>(({}, ref) => {
   return (
-    <section className="py-20">
+    <section className="py-20" ref={ref}>
       <div className="container divide">
         <div className="flex-1">
           <h2 className="subtitle text-primary">Project</h2>
@@ -20,4 +22,8 @@ export default function Project() {
       </div>
     </section>
   );
-}
+});
+
+Project.displayName = "Project";
+
+export default Project;
