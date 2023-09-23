@@ -48,9 +48,9 @@ export default function Navbar({
       setNavigate("about");
     } else if (offestY > (contactRef.current?.offsetTop || 0) - 100) {
       setNavigate("contact");
-    } else if (offestY > (projectRef.current?.offsetTop || 0)) {
+    } else if (offestY > (projectRef.current?.offsetTop || 0) - 100) {
       setNavigate("project");
-    } else if (offestY > (experinceRef.current?.offsetTop || 0)) {
+    } else if (offestY > (experinceRef.current?.offsetTop || 0) - 100) {
       setNavigate("experience");
     }
   };
