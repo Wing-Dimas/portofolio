@@ -1,18 +1,14 @@
-import Contact from "@/components/Contact";
-import Experince from "@/components/Experince";
-import Hero from "@/components/Hero";
-import Navbar from "@/components/Navbar";
-import Project from "@/components/Project";
-import React from "react";
+import LandingPage from "@/components/LandingPage";
+import { Metadata } from "next";
 
-export default function page() {
-  return (
-    <div className="min-h-[2000px] relative">
-      <Navbar />
-      <Hero />
-      <Experince />
-      <Project />
-      <Contact />
-    </div>
-  );
+export const metadata: Metadata = {
+  title: "Portofolio | Dimas Wing Bagas Bimantara",
+  description:
+    "portofolio dimas wing bagas bimantara | Software Enginering | Frontend Web Devoloper",
+  keywords:
+    "portofolio,dimas wing bagas bimantara,software engineering,frontend,web,devoloper",
+};
+
+export default function Page() {
+  return <LandingPage />;
 }
