@@ -10,7 +10,7 @@ import {
   IconBrightnessUp,
 } from "@tabler/icons-react";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 interface NavbarPropsType {
   experinceRef: React.RefObject<HTMLElement>;
@@ -38,6 +38,27 @@ export default function Navbar({
       behavior: "smooth",
     });
   };
+
+  const handleScroll = () => {
+    const offestY = window.scrollY;
+    const experinceOffset = experinceRef.current?.offsetTop || 0;
+    let currentSection = navigate;
+    if (currentSection != "about" && offestY < experinceOffset) {
+      setNavigate("about");
+    } else if (offestY > (contactRef.current?.offsetTop || 0)) {
+      setNavigate("contact");
+    } else if (offestY > (projectRef.current?.offsetTop || 0)) {
+      setNavigate("project");
+    } else if (offestY > (experinceRef.current?.offsetTop || 0)) {
+      setNavigate("experience");
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
 
   return (
     <nav className="w-full mx-auto py-8 fixed top-0 z-50">
