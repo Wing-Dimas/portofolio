@@ -1,3 +1,166 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  font-family: "Quicksand", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #d6dee1;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #a8bbbf;
+}
+
+@layer components {
+  * {
+    @apply transition-all duration-500 scroll-smooth font-quicksand;
+  }
+  .logo {
+    @apply relative;
+  }
+
+  .logo .character {
+    @apply absolute block text-3xl text-primary font-semibold top-1/2 left-1/2 -mt-5 -ml-3.5;
+  }
+
+  .hamburger {
+    @apply w-full px-4 mx-auto flex md:hidden relative justify-end;
+  }
+
+  .hamburger .nav-wrapper {
+    @apply bg-white rounded-md shadow-lg p-1 absolute w-[300px] top-12;
+  }
+
+  .hamburger .nav-wrapper .nav-list {
+    @apply grid gap-2 p-2 w-full;
+  }
+
+  .hamburger .nav-wrapper .nav-link {
+    @apply w-full text-left text-primary text-base font-medium rounded-md hover:bg-light;
+  }
+
+  .hamburger .nav-wrapper .nav-dark-mode {
+    @apply block p-1 text-sm text-secondary font-semibold rounded-full transition-all duration-700 hover:bg-light;
+  }
+
+  .nav-wrapper {
+    @apply flex flex-1 justify-center;
+  }
+
+  .nav-wrapper .nav-list {
+    @apply flex bg-white px-[5px] py-1 items-center gap-3 m-2 rounded-full;
+  }
+
+  .nav-wrapper .nav-list .nav-link {
+    @apply block py-2 px-4 text-sm text-secondary font-semibold rounded-full transition-all duration-700 hover:bg-light;
+  }
+
+  .nav-wrapper .nav-list .nav-dark-mode {
+    @apply block p-1 text-sm text-secondary font-semibold rounded-full transition-all duration-700 hover:bg-light;
+  }
+
+  .nav-wrapper .nav-list .nav-link.active,
+  .hamburger .nav-list .nav-link.active {
+    @apply text-white block bg-secondary;
+  }
+
+  .btn-resume {
+    @apply flex w-min justify-center items-center mt-8 gap-3 p-2 border rounded-lg border-primary bg-white text-primary hover:shadow-xl;
+  }
+
+  .divide {
+    @apply px-4 md:px-32 flex md:justify-between mx-auto relative min-h-[80vh] flex-col md:flex-row gap-4;
+  }
+
+  .btn-resume:hover .arrow {
+    @apply ml-4;
+  }
+
+  .brand {
+    @apply block p-2 rounded-md text-primary hover:bg-primary hover:text-light duration-0;
+  }
+  .line {
+    @apply border-l border-primary h-[30vh];
+  }
+
+  .subtitle {
+    @apply text-4xl text-light font-semibold;
+  }
+
+  .text-center {
+    @apply flex justify-center items-center;
+  }
+
+  .hyperlink {
+    @apply underline text-primary hover:bg-[#D2BCFE]  rounded-sm;
+  }
+
+  .modal-wrapper {
+    @apply justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none scale-0 invisible;
+  }
+
+  .modal-wrapper.active {
+    @apply scale-100 visible;
+  }
+
+  .modal-wrapper .modal-box {
+    @apply relative w-auto my-6 mx-auto max-w-3xl;
+  }
+
+  .modal-wrapper .modal-box .modal-content {
+    @apply border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none;
+  }
+
+  .modal-wrapper .modal-box .modal-content .modal-body {
+    @apply relative p-6 flex-auto;
+  }
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin: 2px;
+  border-radius: 50%;
+  border: 4px solid #fff;
+  border-color: #fff transparent #fff transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
