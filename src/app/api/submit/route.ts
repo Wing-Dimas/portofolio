@@ -9,6 +9,7 @@ type SheetForm = {
 
 export const POST = async (req: Request, res: NextApiResponse) => {
   const data = (await req.json()) as SheetForm;
+  console.log(process.env.GOOGLE_PRIVATE_KEY);
   try {
     const auth = new google.auth.GoogleAuth({
       credentials: {
