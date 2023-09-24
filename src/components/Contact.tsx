@@ -47,7 +47,7 @@ const Contact = forwardRef<HTMLElement, ContactPropsType>(({}, ref) => {
         },
         body: JSON.stringify(formData),
       });
-      const data = await res.json();
+      console.log(res);
       setModal(true);
     } catch (error) {
       console.error(error);
